@@ -52,19 +52,17 @@ function check_prerequisites () {
         exit
     fi
 
-    declare -i found_dependency_counter=0
-
-    if checker make == 1 ; then echo "make: Installed"; found_dependency_counter=$((found_dependency_counter+1)); else echo "make: Not Installed!"; fi
-    if checker cmake == 1 ; then echo "cmake: Installed"; found_dependency_counter=$((found_dependency_counter+1)); else echo "cmake: Not Installed!"; fi
-    if checker automake == 1 ; then echo "automake: Installed"; found_dependency_counter=$((found_dependency_counter+1)); else echo "automake: Not Installed!"; fi
-    if checker autoconf == 1 ; then echo "autoconf: Installed"; found_dependency_counter=$((found_dependency_counter+1)); else echo "autoconf: Not Installed!"; fi
-
-    if [ "$found_dependency_counter" == "4" ]; then 
-        echo "Everything in place and ready"; 
-    else 
-        echo "Some required utility isn't found, check previous log entries."
-        echo "Exiting script"
-        exit
+    if ! checker make == 1; then
+        brew install make
+    fi
+    if ! checker cmake == 1; then
+        brew install make
+    fi
+    if ! checker automake == 1; then
+        brew install make
+    fi
+    if ! checker autoconf == 1; then
+        brew install make
     fi
 }
 
