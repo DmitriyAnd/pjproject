@@ -53,16 +53,20 @@ function check_prerequisites () {
     fi
 
     if ! checker make == 1; then
+        echo make not installed. Installing it...
         brew install make
     fi
     if ! checker cmake == 1; then
-        brew install make
+        echo cmake not installed. Installing it...
+        brew install cmake
     fi
     if ! checker automake == 1; then
-        brew install make
+        echo automake not installed. Installing it...
+        brew install automake
     fi
     if ! checker autoconf == 1; then
-        brew install make
+        echo autoconf not installed. Installing it...
+        brew install autoconf
     fi
 }
 
